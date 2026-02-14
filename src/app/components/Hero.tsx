@@ -8,9 +8,9 @@ export function Hero() {
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black text-white pt-24 md:pt-0">
       {/* Animated Gradient Mesh Background */}
       <div className="absolute inset-0 z-0">
-        {/* Animated gradient orbs */}
+        {/* Animated gradient orbs - optimized with will-change and reduced blur on mobile */}
         <motion.div
-          className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/30 rounded-full blur-[120px]"
+          className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/30 rounded-full blur-[60px] md:blur-[80px] will-change-transform"
           animate={{
             scale: [1, 1.2, 1],
             x: [0, 50, 0],
@@ -23,7 +23,7 @@ export function Hero() {
           }}
         />
         <motion.div
-          className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-600/30 rounded-full blur-[120px]"
+          className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-600/30 rounded-full blur-[60px] md:blur-[80px] will-change-transform"
           animate={{
             scale: [1, 1.3, 1],
             x: [0, -30, 0],
@@ -36,7 +36,7 @@ export function Hero() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-600/20 rounded-full blur-[120px]"
+          className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-600/20 rounded-full blur-[60px] md:blur-[80px] will-change-transform"
           animate={{
             scale: [1, 1.1, 1],
             x: [0, 40, 0],

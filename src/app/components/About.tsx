@@ -1,4 +1,5 @@
 import React from "react";
+import NextImage from "next/image";
 import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 
@@ -9,9 +10,9 @@ export function About() {
       <div className="absolute inset-0 opacity-10"
         style={{ backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)", backgroundSize: "40px 40px" }} />
 
-      {/* Animated Background Orbs */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      {/* Background Orbs - static for performance */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
         <motion.div
@@ -65,17 +66,18 @@ export function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="relative"
+          whileHover={{ scale: 1.02, rotate: 1 }}
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 rounded-2xl transform rotate-3 scale-105 blur-2xl" />
-          <motion.img
-            src="https://images.unsplash.com/photo-1687463221023-02f259da7d77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGFic3RyYWN0JTIwc2hhcGVzJTIwZGFyayUyMG1vZGV8ZW58MXx8fHwxNzcwOTUwOTI3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Abstract Digital Form"
-            loading="lazy"
-            decoding="async"
-            className="relative rounded-2xl w-full h-auto shadow-2xl border border-white/10"
-            whileHover={{ scale: 1.02, rotate: 1 }}
-            transition={{ duration: 0.3 }}
-          />
+          <div className="relative rounded-2xl w-full aspect-[4/3] shadow-2xl border border-white/10 overflow-hidden">
+            <NextImage
+              src="/images/about-hero.jpg"
+              alt="Abstract Digital Form"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

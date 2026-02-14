@@ -86,8 +86,17 @@ export function Services() {
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isMobile) return; // Skip mouse tracking on mobile
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -105,7 +114,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       onMouseLeave={() => setIsHovered(false)}
       className="relative p-8 border border-white/10 rounded-2xl bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm group overflow-hidden"
       style={{
-        transform: isHovered
+        transform: !isMobile && isHovered
           ? `perspective(1000px) rotateX(${(mousePosition.y - 150) / 30}deg) rotateY(${(mousePosition.x - 150) / 30}deg) scale(1.02)`
           : "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)",
         transition: "transform 0.2s ease-out",

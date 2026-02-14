@@ -1,4 +1,5 @@
 import React from "react";
+import NextImage from "next/image";
 import { motion } from "motion/react";
 import { ExternalLink, ArrowRight } from "lucide-react";
 
@@ -6,21 +7,21 @@ const projects = [
   {
     title: "Neon FinTech",
     category: "SaaS Platform",
-    image: "https://images.unsplash.com/photo-1759661881353-5b9cc55e1cf4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMGNvZGUlMjBzY3JlZW4lMjBmdXR1cmlzdGljfGVufDF8fHx8MTc3MDg5OTExOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/images/project-1.jpg",
     tags: ["React", "Node.js", "Financial Data"],
     gradient: "from-blue-600/20 to-purple-600/20"
   },
   {
     title: "Lumina Interiors",
     category: "E-Commerce",
-    image: "https://images.unsplash.com/photo-1763833294545-e38e4fab1961?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwY3JlYXRpdmUlMjBzdHVkaW98ZW58MXx8fHwxNzcwOTUwODQxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/images/project-2.jpg",
     tags: ["Shopify", "Liquid", "3D Configurator"],
     gradient: "from-purple-600/20 to-pink-600/20"
   },
   {
     title: "Apex Media",
     category: "Corporate Website",
-    image: "https://images.unsplash.com/photo-1758873271824-a3216c80d1ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkaWdpdGFsJTIwYWdlbmN5JTIwb2ZmaWNlJTIwY3JlYXRpdmUlMjB0ZWFtfGVufDF8fHx8MTc3MDk1MDg0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/images/project-3.jpg",
     tags: ["WordPress", "Headless", "Motion Design"],
     gradient: "from-pink-600/20 to-orange-600/20"
   }
@@ -77,12 +78,13 @@ export function Work() {
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-10" />
 
                 {/* Image */}
-                <img
+                <NextImage
                   src={project.image}
                   alt={project.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                  priority={index === 0}
                 />
 
                 {/* Hover icon */}
