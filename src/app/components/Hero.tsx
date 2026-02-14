@@ -5,7 +5,7 @@ import { MagneticButton } from "./ui/magnetic-button";
 
 export function Hero() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black text-white">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black text-white pt-24 md:pt-0">
       {/* Animated Gradient Mesh Background */}
       <div className="absolute inset-0 z-0">
         {/* Animated gradient orbs */}
@@ -65,14 +65,14 @@ export function Hero() {
 
       <div className="container mx-auto px-6 relative z-20 text-center md:text-left">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl"
         >
           {/* Badge with enhanced styling */}
           <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={false}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-block py-2 px-4 border border-blue-500/50 rounded-full text-blue-400 text-xs font-bold tracking-widest uppercase mb-8 bg-blue-500/10 backdrop-blur-sm shadow-lg shadow-blue-500/20"
@@ -83,12 +83,12 @@ export function Hero() {
           {/* Enhanced heading with staggered animation */}
           <motion.h1
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight mb-6"
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
               className="block"
@@ -96,7 +96,7 @@ export function Hero() {
               We Build Digital
             </motion.span>
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
               className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 relative"
@@ -110,7 +110,7 @@ export function Hero() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
             className="text-lg md:text-2xl text-gray-300 max-w-2xl mb-12 leading-relaxed font-light"
@@ -120,7 +120,7 @@ export function Hero() {
 
           {/* Magnetic Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
@@ -138,7 +138,7 @@ export function Hero() {
 
       {/* Enhanced Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={false}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
