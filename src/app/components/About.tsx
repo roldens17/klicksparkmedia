@@ -70,6 +70,8 @@ export function About() {
           <motion.img
             src="https://images.unsplash.com/photo-1687463221023-02f259da7d77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGFic3RyYWN0JTIwc2hhcGVzJTIwZGFyayUyMG1vZGV8ZW58MXx8fHwxNzcwOTUwOTI3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
             alt="Abstract Digital Form"
+            loading="lazy"
+            decoding="async"
             className="relative rounded-2xl w-full h-auto shadow-2xl border border-white/10"
             whileHover={{ scale: 1.02, rotate: 1 }}
             transition={{ duration: 0.3 }}
